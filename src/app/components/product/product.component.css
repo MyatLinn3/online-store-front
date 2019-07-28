@@ -1,0 +1,19 @@
+img{
+  width: 300px;
+  height: 350px;
+}
+.container{
+  margin-top: 100px;
+}
+
+.card-fix{
+    height: 250px;
+}
+
+.card{
+  background-color: #bac4cc;
+}
+
+.btn-outline-info{
+
+}

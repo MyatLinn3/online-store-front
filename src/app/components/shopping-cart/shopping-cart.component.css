@@ -1,0 +1,19 @@
+.container{
+   margin-top: 100px;
+}
+
+.title-font {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: 'Roboto Condensed';
+}
+
+
+.tr-bottom{
+  border-bottom: #bac4cc solid 1px;
+}
+
+
+.check-out-process{
+    margin-left: 300px;
+}

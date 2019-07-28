@@ -1,0 +1,52 @@
+<div class="container">
+      <div class="row mt-2">
+        <div class="col-md-5">
+          <img
+            class="rounded float-left  rounded-circle" alt="Hello WOrld"
+            src="https://scontent-frx5-1.cdninstagram.com/vp/fef5416ffada66a3b2efef9ef656887e/5D62FE65/t51.2885-15/e35/55734803_1225712867553324_8211322886810063754_n.jpg?_nc_ht=scontent-frx5-1.cdninstagram.com&se=7&ig_cache_key=MjAxOTEzNDQyNDM3Mjc3ODk2NQ%3D%3D.2">
+
+        </div>
+        <div class="col-md-3 text-center">
+          <h2 class="section-headline"><span>My Profile</span></h2>
+        </div>
+      </div>
+  <hr>
+      <div class="row">
+           <div class="col-md-6">
+               <button mat-button (click)="editProfile()">Edit Profile</button>
+           </div>
+      </div>
+      <div class="row ">
+          <div class="col-md-6 offset-3 ">
+                   <p>First Name :<strong> {{user.firstName | uppercase}}</strong> </p>
+                   <p>Last Name :<strong> {{user.lastName | uppercase}}</strong> </p>
+                   <p>Username :<strong> {{user.username | uppercase}}</strong> </p>
+                   <p>Email :<strong> {{user.email | lowercase}}</strong> </p>
+                   <p>phone :<strong> {{user.phone | number}}</strong> </p>
+          </div>
+      </div>
+
+</div>
+
+
+
+
+<!--<mat-tab-group  [selectedIndex]="selectedProfileTab">-->
+<!--  <mat-tab label="Edit Profile">-->
+<!--    <edit-profile></edit-profile>-->
+<!--  </mat-tab>-->
+<!--  &lt;!&ndash;    Order Edit Tabs&ndash;&gt;-->
+<!--  <mat-tab label="Orders">-->
+<!--    <order-list></order-list>-->
+<!--  </mat-tab>-->
+<!--  <mat-tab label="Payment">-->
+<!--    <mat-tab-group>-->
+<!--      <mat-tab label="List of Credit Card">-->
+
+<!--      </mat-tab>-->
+<!--      <mat-tab label="Add (Update) Credit Card">-->
+<!--        <add-payment></add-payment>-->
+<!--      </mat-tab>-->
+<!--    </mat-tab-group>-->
+<!--  </mat-tab>-->
+<!--</mat-tab-group>-->

@@ -1,0 +1,31 @@
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center mt-5">
+  <h1 class="display-4">Pricing</h1>
+  <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+</div>
+
+<div class="container">
+
+  <div class="row" >
+       <div class="col-md-4"  *ngFor=" let product of productList">
+         <div class="card shadow-sm">
+            <div class="row">
+                 <div class="col-md-6">
+                   <a (click)="getDetailProduct(product)"> <img src="{{product.imageUrl}}}" alt=""></a>
+                 </div>
+                <div class="col-md-6 p-2">
+                    <p>{{product.productName}}</p>
+                  <p>{{product.productDescription}}</p>
+                  <p class="display-5"> {{product.ourPrice | currency:'USD'}}</p>
+                  <p><button mat-button class="text-secondary"  (click)="getDetailProduct(product)"> View </button></p>
+                </div>
+
+            </div>
+         </div>
+       </div>
+  </div>
+</div>
+
+
+
+

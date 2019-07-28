@@ -1,0 +1,25 @@
+<div class="row justify-content-md-center ">
+  <div class="p-5 card mt-2">
+    <table class="table table-sm table-inverse">
+      <thead>
+      <tr>
+        <th>Order Date</th>
+        <th>Order Number</th>
+        <th>Total</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let order of orderList">
+        <td>
+          <a class="pointer" (click)="onDisplayOrder(order)"><span
+          >{{order.orderDate}}</span></a>
+        </td>
+        <td>{{order.id}}</td>
+        <td>{{order.orderTotal}}</td>
+        <td>{{order.orderStatus}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

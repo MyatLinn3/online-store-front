@@ -1,0 +1,26 @@
+<div  style="width: 500px; height: 450px" class="shadow p-5">
+<h1 mat-dialog-title class="text-success text-capitalize text-center">Thank You For Buying Our Products</h1>
+<div mat-dialog-content style="margin-top: 50px">Your Purchases Will be Delivered within 7 days.
+    <p class="te">
+       <span></span> Money Back Guarantee !Get the item you ordered or get your money back.
+    </p>
+    <div style="margin-top: 30px">
+      <span class="text-primary"><i style="font-size: 30px" class="fas fa-info-circle mx-2"></i></span>
+      Please Contact Us
+      <br>
+      <span class="mx-2 text-primary"><i class="fas fa-paper-plane"></i></span>
+      <a href="#">soeonlinestore@customercare.com</a>
+    </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="dialogRef.close('OK')" >Ok</button>
+  <button mat-raised-button (click)="dialogRef.close('no')" >Continue Shopping</button>
+</div>
+</div>
+<style>
+   button{
+      width: 150px;
+     margin-top: 40px;
+     margin-left: 50px;
+   }
+</style>

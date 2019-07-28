@@ -1,0 +1,36 @@
+.container{
+  margin-top: 100px;
+  width: 900px;
+}
+
+
+/*.card{*/
+/*  margin-bottom: 20px;*/
+/*}*/
+
+
+table{
+  margin:auto;
+   width: 80%;
+}
+
+.container{
+  margin-top: 100px;
+}
+
+
+
+button{
+
+  margin-top: 30px;
+   width: 150px;
+}
+
+
+.cus-margin{
+  margin-left: 20px;
+}
+.custom-pop-up-box{
+     width: 700px;
+    height: 350px;
+}

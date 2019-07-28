@@ -1,0 +1,74 @@
+<div class="container">
+          <div class="row">
+
+              <p class="title-font">YOUR SHOPPING BAG ({{products.length}}) </p>
+
+          </div>
+          <div class="row">
+                <div>
+                  <table>
+                    <thead>
+                    <tr class="tr-bottom">
+                      <th style="min-width:600px" > Item</th>
+                      <th  style="min-width:200px" >Name</th>
+                      <th  style="min-width:200px" >Price</th>
+                      <th  style="min-width:200px" >Total </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr class="tr-bottom"  *ngFor=" let product of products">
+                        <td style="width:65%">
+                          <img src="{{product.imageUrl}}" alt="">
+                        </td>
+                        <td width="15%">
+                          {{product.productName}}
+                        </td>
+                        <td width="15%"> {{product.ourPrice | currency:'USD'}}</td>
+                        <td width="15%"> {{product.ourPrice| currency:'USD'}}</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Total Items</th>
+                        <th>{{products.length|number}}</th>
+
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th>GrandTotal</th>
+                        <th>{{totalPrice}}</th>
+                       </tr>
+
+                    </tbody>
+
+                  </table>
+                </div>
+          </div>
+          <div  class="row">
+              <div class="col-md-6">
+                <div class="mt-5">
+                  <button mat-button routerLink="/productList"
+                          class="btn btn-outline-secondary mx-3">Continue Shopping</button>
+
+                  <button mat-button routerLink="/cart"
+                          class="btn btn-outline-secondary mx-3"
+                          (click)="clearCart()">Clear Cart</button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mt-5">
+                  <button mat-button
+                          routerLink="/checkOut"
+                          class="btn btn-outline-info check-out-process"
+                          [class.disabled]="isCartExist()"
+                  >Process To Check Out</button>
+                </div>
+
+              </div>
+          </div>
+
+
+</div>
+

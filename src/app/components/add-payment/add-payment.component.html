@@ -1,0 +1,59 @@
+<ngb-accordion #acc="ngbAccordion" >
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+                <span>&#9733; <b class="text-info"> Pay With</b></span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+       <p class="cus-margin text-info" style="text-decoration-line: underline">
+         Credit or debit card
+       </p>
+
+          <h3 >
+            <span class="cus-margin text-primary">
+                 <i class="fab fa-cc-visa"></i>
+            </span>
+          <span class="cus-margin text-info">
+             <i class="fab fa-cc-amex"></i>
+          </span >
+           <span class="cus-margin text-success">
+              <i class="fab fa-cc-mastercard"></i>
+           </span>
+           <span class="cus-margin text-secondary">
+              <i class="fab fa-cc-amazon-pay"></i>
+           </span>
+           <span class="cus-margin text-success">
+             <i class="fab fa-paypal"></i>
+           </span>
+            <span class="cus-margin text-info">
+                <i class="fab fa-cc-discover"></i>
+            </span>
+
+          </h3>
+
+      <form  >
+        <label>Card Number</label>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="1234-4372-8809-6784">
+        </div>
+
+        <div class="form-group">
+          <label>Name on Card </label>
+          <input type="text" class="form-control" placeholder="Eg. John Wick">
+        </div>
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label>Expired Date</label>
+            <input matInput type="text" class="form-control" placeholder="10/2022">
+          </div>
+
+          <div class="form-group col-md-6 ">
+            <label>Security Code</label>
+            <input type="text" class="form-control" placeholder=" 3 - 4 digit)">
+          </div>
+        </div>
+
+      </form>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
