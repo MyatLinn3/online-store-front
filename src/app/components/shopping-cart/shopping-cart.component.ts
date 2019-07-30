@@ -16,7 +16,7 @@ export class ShoppingCartComponent implements OnInit {
     ngOnInit() {
       this.products = this.cartService.getCarts();
       this.products.forEach( value => {
-         this.totalPrice += value.ourPrice;
+         this.totalPrice += value.price;
       })
     }
 
