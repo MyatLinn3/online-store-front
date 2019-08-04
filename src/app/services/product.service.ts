@@ -22,13 +22,15 @@ export class ProductService {
     return this.httpClient.get<Product[]>(url,{headers:tokenHeader})
   }
 
-  public  getProduct(id:number):Observable<Product>{
-    let url = this.serverPath+'/api/product/'+id;
-    let tokenHeader = new HttpHeaders({
-      'Content-Type' : 'application/json'
+  getProduct(productId){
+    let url="http://localhost:8080/api/product/view";
+    let header=new HttpHeaders({
+      'Content-Type':'application/json'
     });
-    return this.httpClient.get<Product>(url,{headers:tokenHeader})
+    return this.httpClient.post(url,productId,{headers:header});
   }
+
+
 
   public searchProduct(keyword){
     let url = this.serverPath+'/api/product/'+keyword;
