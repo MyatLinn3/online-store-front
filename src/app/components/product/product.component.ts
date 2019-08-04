@@ -12,7 +12,7 @@ import {Product} from '../../models/product-model';
 export class ProductComponent implements OnInit {
 
     productId: number;
-    product: Product;
+    product: Product=new Product();
 
     constructor(private service:ProductService,private  route:ActivatedRoute,
                 private cartService:CartService) { }

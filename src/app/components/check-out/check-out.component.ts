@@ -50,8 +50,7 @@ export class CheckOutComponent implements OnInit {
     onConfirm(){
       this.orderDTO.products =this.products;
       this.orderDTO.shippingAddress = this.shippingAddress;
-      this.openDialog();
-
+      this.openTransferDialog();
     }
 
 
@@ -68,6 +67,17 @@ export class CheckOutComponent implements OnInit {
 
     }
 
+    openTransferDialog(){
+      let dialog = this.dialog.open(TransferDialog);
+      dialog.afterClosed().subscribe(
+        result => {
+          if (result=='OK'){
+             this.openDialog();
+          }
+        }
+      )
+    }
+
 
 
 }
@@ -79,4 +89,26 @@ export class CheckOutComponent implements OnInit {
 })
 export class DialogResultExampleDialog {
   constructor(public dialogRef: MatDialogRef<DialogResultExampleDialog>) {}
+}
+
+
+
+@Component({
+  selector: 'transfer-dialog-result',
+  templateUrl: './transfer-dialog-result.html'
+})
+export class TransferDialog {
+
+    products:Product[]=[];
+    totalPrice: number=0;
+
+  constructor(public dialogRef: MatDialogRef<TransferDialog>,
+              private cartService:CartService) {
+
+    this.products= this.cartService.getCarts();
+    this.products.forEach( value => {
+      this.totalPrice +=  value.price
+    });
+  }
+
 }

@@ -11,14 +11,16 @@ export class CheckOutService {
   private serverPath=AppConstant.serverPath;
   constructor(private httpClient:HttpClient) { }
 
-  createOrder(orderDTO: OrderDto):Observable<string> {
-    console.log(orderDTO);
+  createOrder(orderDTO):Observable<OrderDto> {
+
     let url = this.serverPath+"/api/order/create";
 
     let tokenHeader = new HttpHeaders({
       'Content-Type' : 'application/json'
     });
-    return this.httpClient.post<string>("http://localhost:8080/api/order/create", orderDTO);
+
+
+    return this.httpClient.post<OrderDto>("http://localhost:8080/api/order/create", orderDTO);
   }
 
 }

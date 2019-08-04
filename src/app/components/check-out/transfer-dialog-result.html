@@ -1,0 +1,24 @@
+<div  style="width: 500px; height: 450px" class="shadow p-5">
+<div mat-dialog-content style="margin-top: 50px">
+
+   <div class="text-center">
+     <h1 class="text-primary display-1 ">
+       <i class="fas fa-check-circle"></i>
+     </h1>
+     <span class="text-center">Payment Successful</span>
+     <p>Transfer from Bank Account to Balance</p>
+     <p>{{totalPrice }} (MMK)</p>
+   </div>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="dialogRef.close('OK')" >Ok</button>
+</div>
+</div>
+<style>
+   button{
+      width: 150px;
+     margin-top: 40px;
+     margin-left: 50px;
+   }
+</style>

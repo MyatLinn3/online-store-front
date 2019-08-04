@@ -28,12 +28,13 @@ import { AddPaymentComponent } from './components/add-payment/add-payment.compon
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductComponent } from './components/product/product.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import {CheckOutComponent, DialogResultExampleDialog} from './components/check-out/check-out.component';
+import {CheckOutComponent, DialogResultExampleDialog, TransferDialog} from './components/check-out/check-out.component';
 import {ProductService} from './services/product.service';
 import { HomeComponent } from './components/home/home.component';
 import { ShippingAddressComponent } from './components/shipping-address/shipping-address.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {ShippingService} from './services/shipping.service';
+import {NgxSpinnerModule} from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import {ShippingService} from './services/shipping.service';
     ShippingAddressComponent,
     FooterComponent,
     DialogResultExampleDialog,
+    TransferDialog
 
   ],
   imports: [
@@ -67,10 +69,12 @@ import {ShippingService} from './services/shipping.service';
     MatInputModule,
     MatSelectModule,
     NgbModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxSpinnerModule
   ],
   entryComponents:[
-    DialogResultExampleDialog
+    DialogResultExampleDialog,
+    TransferDialog
   ],
   providers: [LoginService,
               ProductService,
