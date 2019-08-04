@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class ProductListComponent implements OnInit {
 
   public productList:Product[]=[];
+  keyword: string;
 
   constructor(private productService:ProductService,
               private router:Router) { }
@@ -32,4 +33,12 @@ export class ProductListComponent implements OnInit {
   }
 
 
+  onSearchByTitle() {
+     this.productService.searchProduct(this.keyword).subscribe(
+       res =>  {
+          this.productList = res
+       },
+       error1 => console.log(error1)
+     )
+  }
 }

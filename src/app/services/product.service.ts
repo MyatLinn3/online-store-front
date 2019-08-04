@@ -30,6 +30,14 @@ export class ProductService {
     return this.httpClient.get<Product>(url,{headers:tokenHeader})
   }
 
+  public searchProduct(keyword){
+    let url = this.serverPath+'/api/product/'+keyword;
+    let tokenHeader = new HttpHeaders({
+      'Content-Type' : 'application/json'
+    });
+    return this.httpClient.get<Product[]>(url,{headers:tokenHeader})
+  }
+
 
 
 }
