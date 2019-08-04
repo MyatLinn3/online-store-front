@@ -183,10 +183,19 @@
               </h3>
 
               <form  >
-                <label>Card Number</label>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="1234-4372-8809-6784">
+                <div class="form-row">
+
+                  <div class="form-group col-md-6">
+                    <label>Card Number</label>
+                    <input type="text" class="form-control" placeholder="1234-4372-8809-6784" maxlength="19">
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label>Online-Store Card</label>
+                    <input type="text" class="form-control" [(ngModel)]="cardNumber"  name="cardNumber">
+                  </div>
                 </div>
+
 
                 <div class="form-group">
                   <label>Name on Card </label>

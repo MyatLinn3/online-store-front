@@ -20,6 +20,7 @@ export class CheckOutComponent implements OnInit {
     totalPrice: number=0;
     isAddress:boolean ;
     shippingAddress : ShippingAddress =new ShippingAddress();
+    cardNumber:string="0075-2010-1008-7702";
     orderDTO: OrderDto =new OrderDto();
 
 
@@ -101,6 +102,8 @@ export class TransferDialog {
 
     products:Product[]=[];
     totalPrice: number=0;
+
+
 
   constructor(public dialogRef: MatDialogRef<TransferDialog>,
               private cartService:CartService) {
