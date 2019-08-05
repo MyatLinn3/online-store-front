@@ -59,6 +59,7 @@ export class CheckOutComponent implements OnInit {
       let dialog= this.dialog.open(DialogResultExampleDialog);
       dialog.afterClosed().subscribe(result =>{
            if (result == 'OK') {
+             console.log(this.orderDTO);
               this.checkOutService.createOrder(this.orderDTO).subscribe( res => console.log(res));
            }else {
               this.router.navigate(['/productList'])

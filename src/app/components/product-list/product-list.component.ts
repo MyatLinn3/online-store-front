@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from '../../models/product-model';
-import {ProductService} from '../../services/product.service';
-import {Router} from '@angular/router';
+import { Product } from '../../models/product-model';
+import { ProductService } from '../../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -10,35 +10,39 @@ import {Router} from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
 
-  public productList:Product[]=[];
+  public productList: Product[] = [];
   keyword: string;
 
-  constructor(private productService:ProductService,
-              private router:Router) { }
+  constructor(private productService: ProductService,
+    private router: Router) { }
 
   ngOnInit() {
     this.getAllProduct();
-    console.log(this.productList)
+
   }
 
-  getAllProduct(){
-     this.productService.getProductList().subscribe(
-        data => this.productList =data,
-       error => console.log(error)
-     )
+  getAllProduct() {
+    this.productService.getProductList().subscribe(
+      data => {
+        console.log(data);
+        this.productList = data.filter(a => a.available === true);
+        console.log(this.productList);
+      },
+      error => console.log(error)
+    )
   }
 
-  getDetailProduct(product){
-      this.router.navigate(['/productDetail',product.id]);
+  getDetailProduct(product) {
+    this.router.navigate(['/productDetail', product.id]);
   }
 
 
   onSearchByTitle() {
-     this.productService.searchProduct(this.keyword).subscribe(
-       res =>  {
-          this.productList = res
-       },
-       error1 => console.log(error1)
-     )
+    this.productService.searchProduct(this.keyword).subscribe(
+      res => {
+        this.productList = res
+      },
+      error1 => console.log(error1)
+    )
   }
 }
