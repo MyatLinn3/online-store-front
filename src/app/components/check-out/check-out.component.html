@@ -28,7 +28,7 @@
                            <tr>
                               <td></td>
                               <td>Grand Total</td>
-                             <td>{{totalPrice | currency:'USD'}}</td>
+                             <td>{{totalPrice | currency:'MMK'}}</td>
                            </tr>
                         </tbody>
 
@@ -41,15 +41,10 @@
         <div class="card-header">Ship to</div>
 
         <div *ngIf="!isAddress"> Please Fill Your Address .Where we will send Your Purchases.
-          {{f.value|json}}
+         
           <div class="card-body">
             <form  #f="ngForm" (ngSubmit)="onDone(f.value)" >
-              <div class="form-group">
-                <input type="text"
-                       class="form-control"
-                       placeholder="Your Country"
-                       ngModel name="country">
-              </div>
+             
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <input  type="text"
@@ -80,24 +75,19 @@
               </div>
 
               <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                   <input type="text"
                          class="form-control"
                          placeholder="Township"
                          ngModel name="township">
                 </div>
-                <div class="form-group col-md-4 ">
+                <div class="form-group col-md-6">
                   <input type="text"
                          class="form-control"
                          placeholder="State/Region"
                          ngModel name="state">
                 </div>
-                <div class="form-group col-md-4 ">
-                  <input type="text"
-                         class="form-control"
-                         placeholder="Zipcode"
-                         ngModel name="zipcode">
-                </div>
+                
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -156,9 +146,7 @@
               <span>&#9733; <b class="text-info"> Pay With</b></span>
             </ng-template>
             <ng-template ngbPanelContent>
-              <p class="cus-margin text-info" style="text-decoration-line: underline">
-                Credit or debit card
-              </p>
+              
 
               <h3 >
             <span class="cus-margin text-primary">
@@ -186,13 +174,19 @@
                 <div class="form-row">
 
                   <div class="form-group col-md-6">
-                    <label>Card Number</label>
-                    <input type="text" class="form-control" placeholder="1234-4372-8809-6784" maxlength="19">
+                    <label>Customer's Card Number</label>
+                    <input type="text" class="form-control" placeholder="Enter your card number" maxlength="16">
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label>Online-Store Card</label>
-                    <input type="text" class="form-control" [(ngModel)]="cardNumber"  name="cardNumber">
+                    <label>Online-Store's Card Number</label>
+                    <select class="form-control">
+                        <option>AYA 0923 2334 2344 2256</option>
+                        <option>KBZ 0943 5534 1246 3479</option>
+                        <option>UAB 3434 5353 3545 2436</option>
+                        <option>MAB 2356 6477 5363 2546</option>
+                        <option>CB 4642 6464 7568 3632</option>
+                      </select>
                   </div>
                 </div>
 
