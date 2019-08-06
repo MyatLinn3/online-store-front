@@ -1,9 +1,9 @@
-import {Product} from './product-model';
-import {ShippingAddress} from './shipping-address-model';
+import { Product } from './product-model';
+import { ShippingAddress } from './shipping-address-model';
 
-export  class OrderDto {
+export class OrderDto {
 
-  public products:Product[]=[];
-  public shippingAddress:ShippingAddress;
-
+  public products: Product[] = [];
+  public shippingAddress: ShippingAddress;
+  public date: string = new Date().toISOString();
 }
