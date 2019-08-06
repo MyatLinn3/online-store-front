@@ -40,7 +40,7 @@
       <div class="card">
         <div class="card-header">Ship to</div>
 
-        <div *ngIf="!isAddress"> Please Fill Your Address .Where we will send Your Purchases.
+        <div *ngIf="!isAddress"> Please Fill Your Address .Where we will send Your Purchases.Delivery Fees will be based upon on your township.
          
           <div class="card-body">
             <form  #f="ngForm" (ngSubmit)="onDone(f.value)" >
@@ -94,14 +94,14 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Email"
+                    placeholder="Email" 
                     ngModel name="email">
                 </div>
                 <div class="form-group col-md-6 ">
-                  <input type="text"
+                  <input type="number"
                          class="form-control"
-                         placeholder="Confirm Email"
-                         ngModel name="confirmEmail">
+                         placeholder="Phone Number"
+                         ngModel name="phone number">
                 </div>
               </div>
               <div class="form-row">
@@ -114,7 +114,9 @@
         </div><!-- Before Filling Shipping Address Form-->
         <div *ngIf="isAddress">
            <div class="card-body">
-              <p>Thank You ! We Will Ship Your Purchases this Address</p>
+              <p>Thank You ! We Will Ship Your Purchases this Address 
+               
+              </p>
               <table class="table" >
                   <tbody>
                      <tr>
