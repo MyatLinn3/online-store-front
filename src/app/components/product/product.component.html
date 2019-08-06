@@ -6,40 +6,46 @@
       <img src="{{product.imageUrl}}" alt="">
     </div>
     <div class="col-md-8">
-       <p class="text-center display-5">{{product.productName}}</p>
+      <p class="text-center display-5">{{product.productName}}</p>
       <hr>
-       <div class="card shadow-sm ">
-         <div class="p-5">
-           <p class="text-center"> <strong></strong>{{product.productName}}</p>
-           <p>Price &nbsp;{{product.price| currency:'USD'}}</p>
-           <p>Description &nbsp; {{product.description}}</p>
-         </div>
+      <div class="card shadow-sm ">
+        <div class="p-5">
+          <p class="text-center"> <strong></strong>{{product.productName}}</p>
+          <p>Price &nbsp;{{product.price| currency:'USD'}}</p>
+          <p>Description &nbsp; {{product.description}}</p>
+        </div>
 
-         <div class="card-body">
-           <div class="row">
-             <hr>
-             <div class="col-md-4 ">
-               <a class="btn-outline-info display-2" mat-button>
-                 9,851 sold
-               </a>
-             </div>
-             <div class="col-md-4">
-               <a class="display-1  btn-outline-info" mat-button>
-                 More than 80% sold
-               </a>
+        <div class="card-body">
+          <div class="row">
+            <hr>
+            <div class="col-md-4 ">
+              <a class="btn-outline-info display-2" mat-button>
+                9,851 sold
+              </a>
+            </div>
+            <div class="col-md-4">
+              <a class="display-1  btn-outline-info" mat-button>
+                More than 80% sold
+              </a>
 
-             </div>
-             <div class="col-md-4">
-               <a mat-button class="display-1  btn-outline-info">
-                 30% savings
-               </a>
+            </div>
+            <div class="col-md-4">
+              <a mat-button class="display-1  btn-outline-info">
+                30% savings
+              </a>
 
-             </div>
-           </div>
-         </div>
-       </div>
-      <a  mat-button class="btn btn-outline-info mb-3 mx-2" (click)="addToCart(product)">Add To Cart</a>
-      <a   mat-button (click)="viewCart()" routerLink="/viewShoppingCart" class="btn btn-outline-info mb-3 mx-2">Cart View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="quantity !== 0">
+        <a mat-button class="btn btn-outline-info mb-3 mx-2" (click)="addToCart(product)">Add To Cart</a>
+      </div>
+      <div *ngIf="quantity === 0">
+        <p style="color: red;">The Item Is Out!</p>
+      </div>
+      <a mat-button routerLink="/viewShoppingCart" class="btn btn-outline-info mb-3 mx-2">Cart
+        View</a>
     </div>
   </div>
   <div class="mt-5">
