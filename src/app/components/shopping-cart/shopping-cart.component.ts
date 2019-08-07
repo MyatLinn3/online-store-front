@@ -22,7 +22,8 @@ export class ShoppingCartComponent implements OnInit {
 
     public  clearCart(){
       this.cartService.clearCart();
-      this.products = this.cartService.getCarts()
+      this.totalPrice = 0;
+      // this.products = this.cartService.getCarts()
     }
 
     public isCartExist(){

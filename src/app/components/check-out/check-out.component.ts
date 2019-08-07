@@ -90,7 +90,17 @@ export class CheckOutComponent implements OnInit {
   templateUrl: './dialog-result-example-dialog.html'
 })
 export class DialogResultExampleDialog {
-  constructor(public dialogRef: MatDialogRef<DialogResultExampleDialog>) {}
+  constructor(public dialogRef: MatDialogRef<DialogResultExampleDialog>,private cartService:CartService) {}
+
+  onCliOk(){
+    this.cartService.clearCart();
+    this.dialogRef.close('OK');
+  }
+
+  OnCliNo(){
+    this.cartService.clearCart();
+    this.dialogRef.close('No');
+  }
 }
 
 
