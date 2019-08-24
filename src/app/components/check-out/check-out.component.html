@@ -43,14 +43,15 @@
         <div *ngIf="!isAddress"> Please Fill Your Address .Where we will send Your Purchases.Delivery Fees will be based upon on your township.
          
           <div class="card-body">
-            <form  #f="ngForm" (ngSubmit)="onDone(f.value)" >
+            <form  #f="ngForm" (ngSubmit)="onDone(f.value)" class="needs-validation" novalidate >
              
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <input  type="text"
                           class="form-control"
                           placeholder="Name"
-                          ngModel name="firstName" >
+                          ngModel name="firstName"
+                          required >
                 </div>
                
               </div>
@@ -59,13 +60,15 @@
                   <input  type="text"
                           class="form-control"
                           placeholder="City"
-                          ngModel name="city">
+                          ngModel name="city"
+                          required>
                 </div>
                 <div class="form-group col-md-6 ">
                   <input type="text"
                          class="form-control"
                          placeholder="Street address"
-                         ngModel name="streetAddress">
+                         ngModel name="streetAddress"
+                         required>
                 </div>
               </div>
 
@@ -74,29 +77,39 @@
                   <input type="text"
                          class="form-control"
                          placeholder="Township"
-                         ngModel name="township">
+                         ngModel name="township"
+                         required>
                 </div>
                 <div class="form-group col-md-6">
                   <input type="text"
                          class="form-control"
                          placeholder="State/Region"
-                         ngModel name="state">
+                         ngModel name="state" 
+                         required>
                 </div>
                 
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1"></label>
                   <input
-                    type="text"
+                    type="email"
                     class="form-control"
-                    placeholder="Email" 
-                    ngModel name="email">
+                    placeholder="Email"
+                    aria-describedby="emailHelp"
+                    id="exampleInputEmail1" 
+                    ngModel name="email"
+                    required> 
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+ 
                 </div>
                 <div class="form-group col-md-6 ">
-                  <input type="number"
+                  <input type="text"
                          class="form-control"
                          placeholder="Phone Number"
-                         ngModel name="confirmEmail" maxlength="9">
+                         ngModel name="confirmEmail"
+                         maxlength="9"
+                         required>
                 </div>
               </div>
               <div class="form-row">
@@ -131,7 +144,7 @@
                   </tr>
                   </tbody>
               </table>
-              <a (click)="edit()" mat-raised-button class="btn btn-info btn-sm">Edit</a>
+             
            </div>
 
         </div>
@@ -181,7 +194,7 @@
 
                   <div class="form-group col-md-6 ">
                     <label>Security Code</label>
-                    <input type="text" class="form-control" placeholder=" 3 - 4 digit)">
+                    <input type="password" class="form-control" placeholder=" 3 - 4 digit)">
                   </div>
                 </div>
 
@@ -192,6 +205,6 @@
       </div>
      <div style="margin-left: 270px">
         <button mat-raised-button class="btn btn-info mx-4" (click)="onConfirm()" >Confirm Order</button>
-        <button mat-raised-button class="btn btn-danger">Cancel Order</button>
+        <button mat-raised-button class="btn btn-danger" routerLink="/productList">Cancel Order</button>
      </div>
 </div>

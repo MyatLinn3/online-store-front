@@ -39,6 +39,7 @@
           </div>
         </div>
       </div>
+      <div class="row mt-2">
       <div *ngIf="quantity !== 0">
         <a mat-button class="btn btn-outline-info mb-3 mx-2" (click)="addToCart(product)">Add To Cart</a>
       </div>
@@ -49,6 +50,7 @@
         View</a>
     </div>
   </div>
+</div>
   <div class="mt-5">
     <a routerLink="/productList" mat-button class="btn btn-outline-info mb-3 mx-2">Continue Shopping</a>
   </div>
