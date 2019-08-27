@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit {
     this.productService.getProductList().subscribe(
       data => {
         console.log(data);
-        this.productList = data.filter(a => a.available === true);
+        this.productList = data.filter(a => a.isAvailable === true);
         console.log(this.productList);
       },
       error => console.log(error)

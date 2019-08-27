@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
     });
     this.service.getProduct(this.productId).subscribe((data: Product) => {
       this.product = data;
-      this.quantity = this.product.quantity;
+      this.quantity = this.product.availableQuantity;
     });
   }
 
