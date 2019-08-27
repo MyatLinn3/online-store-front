@@ -5,7 +5,7 @@ export class Product {
   public price: number;
   public totalQuantity: number;
   public availableQuantity: number;
-  public isAvailable: boolean = true;
+  public available: boolean = true;
   public description: string;
   public category: string;
   public targetSize: string;

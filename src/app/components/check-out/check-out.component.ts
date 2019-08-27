@@ -97,7 +97,7 @@ export class DialogResultExampleDialog {
     this.dialogRef.close('OK');
   }
 
-  OnCliNo(){
+  onCliNo(){
     this.cartService.clearCart();
     this.dialogRef.close('No');
   }

@@ -25,11 +25,11 @@ export class ProductListComponent implements OnInit {
     this.productService.getProductList().subscribe(
       data => {
         console.log(data);
-        this.productList = data.filter(a => a.isAvailable === true);
+        this.productList = data.filter(a => a.available === true);
         console.log(this.productList);
       },
       error => console.log(error)
-    )
+    );
   }
 
   getDetailProduct(product) {
