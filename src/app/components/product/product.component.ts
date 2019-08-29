@@ -25,16 +25,15 @@ export class ProductComponent implements OnInit {
     this.service.getProduct(this.productId).subscribe((data: Product) => {
       this.product = data;
       this.quantity = this.product.availableQuantity;
+      this.cartService.getCarts().forEach(pro =>
+        this.quantity = pro.id === this.product.id ? this.quantity - 1 : this.quantity
+      );
     });
   }
 
   addToCart(book: any) {
     this.quantity -= 1;
     this.cartService.addToCart(book);
-  }
-
-  public getCarts() {
-    return this.cartService.getCarts();
   }
 
 }

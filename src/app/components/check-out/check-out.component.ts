@@ -40,7 +40,6 @@ export class CheckOutComponent implements OnInit {
     onDone(shippingAddress) {
         this.shippingAddress=shippingAddress
          this.isAddress = true;
-
     }
 
     edit() {

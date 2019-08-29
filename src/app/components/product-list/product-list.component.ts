@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product-model';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -18,7 +19,6 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.getAllProduct();
-
   }
 
   getAllProduct() {
@@ -42,7 +42,7 @@ export class ProductListComponent implements OnInit {
       res => {
         this.productList = res
       },
-      error1 => console.log(error1)
+      console.log
     )
   }
 }
