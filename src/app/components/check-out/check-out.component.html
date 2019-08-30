@@ -6,7 +6,7 @@
           <span class="font-weight-bold">Review item and shipping</span>
         </p>
         <p class="font-weight-light">
-          <span class="text-muted"> Seller : {{"Soe Shop"| uppercase}}</span>
+          <span class="text-muted"> Seller : {{"Baby Mart Online Store"| uppercase}}</span>
         </p>
         <div class="row">
           <table class="table">
@@ -84,7 +84,7 @@
                 #township="ngModel">
               <div *ngIf="township.invalid && (township.dirty || township.touched)" class="alert alert-danger">
                 <div *ngIf="township.errors.required">
-                  TownShip Address is required.
+                  Township Address is required.
                 </div>
               </div>
             </div>
@@ -109,18 +109,18 @@
                   Email is required.
                 </div>
                 <div *ngIf="email.errors.email">
-                  Eg. a@d,mgmg@gmail.com
+                  Eg. mgmg@gmail.com
                 </div>
               </div>
             </div>
             <div class="form-group col-md-6 ">
-              <input type="tel" class="form-control" placeholder="Phone Number" ngModel name="confirmEmail"
-                minlength="11" required #phone="ngModel">
+              <input type="number" class="form-control" placeholder="Phone Number" ngModel name="confirmEmail"
+                maxlength="11" required #phone="ngModel">
               <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
                 <div *ngIf="phone.errors.required">
                   Phone is required.
                 </div>
-                <div *ngIf="phone.errors.minlength">
+                <div *ngIf="phone.errors.maxlength">
                   Phone must Be 11 Numbers.
                 </div>
               </div>
@@ -128,7 +128,7 @@
           </div>
           <div class="form-row">
             <button mat-raised-button class="btn  btn-sm btn-info left-margin" [disabled]="f.invalid"> Done</button>
-            <a mat-raised-button class="btn btn-sm btn-danger mx-3"> Cancel</a>
+            <a mat-raised-button class="btn btn-sm btn-danger mx-3" routerLink="/productList"> Cancel</a>
           </div>
 
         </form>
@@ -175,7 +175,7 @@
 
 
 
-          <form>
+          <form >
             <div class="form-row">
 
               <div class="form-group col-md-6">
@@ -186,6 +186,7 @@
               <div class="form-group col-md-6">
                 <label>Online-Store's Card Number</label>
                 <select class="form-control">
+                  <option value="Choose Bank" disabled>Choose Bank</option>
                   <option>AYA 0923 2334 2344 2256</option>
                   <option>KBZ 0943 5534 1246 3479</option>
                   <option>UAB 3434 5353 3545 2436</option>
@@ -209,7 +210,7 @@
 
               <div class="form-group col-md-6 ">
                 <label>Security Code</label>
-                <input type="password" class="form-control" placeholder=" 3 - 4 digit)">
+                <input type="password" class="form-control" placeholder=" (3 - 4 digit)" maxlength="4">
               </div>
             </div>
 
@@ -218,8 +219,8 @@
       </ngb-panel>
     </ngb-accordion>
   </div>
-  <div style="margin-left: 270px">
-    <button mat-raised-button class="btn btn-info mx-4" (click)="onConfirm()">Confirm Order</button>
-    <button mat-raised-button class="btn btn-danger" routerLink="/productList">Cancel Order</button>
+  <div style="margin-left: 270px" mt-5>
+    <button mat-raised-button class="btn btn-success mx-4" (click)="onConfirm()" >Confirm </button>
+   
   </div>
 </div>
