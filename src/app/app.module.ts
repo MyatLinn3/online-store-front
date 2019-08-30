@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
-import {LoginService} from './services/login.service';
-import {UserService} from './services/user.service';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { LoginService } from './services/login.service';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import {
   MatButtonModule,
   MatDialogModule,
@@ -28,13 +28,13 @@ import { AddPaymentComponent } from './components/add-payment/add-payment.compon
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductComponent } from './components/product/product.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import {CheckOutComponent, DialogResultExampleDialog, TransferDialog} from './components/check-out/check-out.component';
-import {ProductService} from './services/product.service';
+import { CheckOutComponent, DialogResultExampleDialog, TransferDialog } from './components/check-out/check-out.component';
+import { ProductService } from './services/product.service';
 import { HomeComponent } from './components/home/home.component';
 import { ShippingAddressComponent } from './components/shipping-address/shipping-address.component';
 import { FooterComponent } from './components/footer/footer.component';
-import {ShippingService} from './services/shipping.service';
-import {NgxSpinnerModule} from 'ngx-spinner';
+import { ShippingService } from './services/shipping.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,14 +72,14 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     MatDialogModule,
     NgxSpinnerModule
   ],
-  entryComponents:[
+  entryComponents: [
     DialogResultExampleDialog,
     TransferDialog
   ],
   providers: [LoginService,
-              ProductService,
-              UserService,
-              ShippingService],
+    ProductService,
+    UserService,
+    ShippingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

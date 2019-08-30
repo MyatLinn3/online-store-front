@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {Product} from '../../models/product-model';
 import {CartService} from '../../services/cart.service';
 import {ShippingAddress} from '../../models/shipping-address-model';
@@ -11,8 +11,10 @@ import {MatDialog, MatDialogRef} from '@angular/material';
 @Component({
   selector: 'app-check-out',
   templateUrl: './check-out.component.html',
-  styleUrls: ['./check-out.component.css']
+  styleUrls: ['./check-out.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
+
 export class CheckOutComponent implements OnInit {
 
 

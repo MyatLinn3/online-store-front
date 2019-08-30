@@ -1,210 +1,225 @@
 <div class="container">
-     <div class="row">
-          <div class="col-md-12">
-               <div class="card p-3">
-                    <p class="">
-                      <span class="font-weight-bold">Review item and shipping</span>
-                    </p>
-                    <p class="font-weight-light">
-                       <span class="text-muted"> Seller  : {{"Soe Shop"| uppercase}}</span>
-                    </p>
-                 <div class="row">
-                      <table class="table">
-                        <thead>
-                        <tr>
-                          <th>No </th>
-                          <th>Item </th>
-                          <th>Price</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                           <tr *ngFor="let product of products; let i = index">
-                              <td>
-                                {{i+1}}
-                              </td>
-                             <td>{{product.productName}}</td>
-                             <td>{{product.price}}</td>
-                           </tr>
-                           <tr>
-                              <td></td>
-                              <td>Grand Total</td>
-                             <td>{{totalPrice | currency:'MMK'}}</td>
-                           </tr>
-                        </tbody>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card p-3">
+        <p class="">
+          <span class="font-weight-bold">Review item and shipping</span>
+        </p>
+        <p class="font-weight-light">
+          <span class="text-muted"> Seller : {{"Soe Shop"| uppercase}}</span>
+        </p>
+        <div class="row">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>No </th>
+                <th>Item </th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products; let i = index">
+                <td>
+                  {{i+1}}
+                </td>
+                <td>{{product.productName}}</td>
+                <td>{{product.price}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Grand Total</td>
+                <td>{{totalPrice | currency:'MMK'}}</td>
+              </tr>
+            </tbody>
 
-                      </table>
-                 </div>
-               </div>
-          </div>
-     </div>
-      <div class="card">
-        <div class="card-header">Ship to</div>
-
-        <div *ngIf="!isAddress"> Please Fill Your Address .Where we will send Your Purchases.Delivery Fees will be based upon on your township.
-         
-          <div class="card-body">
-            <form  #f="ngForm" (ngSubmit)="onDone(f.value)" class="needs-validation" novalidate >
-             
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <input  type="text"
-                          class="form-control"
-                          placeholder="Name"
-                          ngModel name="firstName"
-                          required >
-                </div>
-               
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <input  type="text"
-                          class="form-control"
-                          placeholder="City"
-                          ngModel name="city"
-                          required>
-                </div>
-                <div class="form-group col-md-6 ">
-                  <input type="text"
-                         class="form-control"
-                         placeholder="Street address"
-                         ngModel name="streetAddress"
-                         required>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <input type="text"
-                         class="form-control"
-                         placeholder="Township"
-                         ngModel name="township"
-                         required>
-                </div>
-                <div class="form-group col-md-6">
-                  <input type="text"
-                         class="form-control"
-                         placeholder="State/Region"
-                         ngModel name="state" 
-                         required>
-                </div>
-                
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1"></label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Email"
-                    aria-describedby="emailHelp"
-                    id="exampleInputEmail1" 
-                    ngModel name="email"
-                    required> 
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
- 
-                </div>
-                <div class="form-group col-md-6 ">
-                  <input type="text"
-                         class="form-control"
-                         placeholder="Phone Number"
-                         ngModel name="confirmEmail"
-                         maxlength="11"
-                         required>
-                </div>
-              </div>
-              <div class="form-row">
-                <button mat-raised-button class="btn  btn-sm btn-info left-margin"> Done</button>
-                <button mat-raised-button class="btn btn-sm btn-danger mx-3"> Cancel</button>
-              </div>
-
-            </form>
+          </table>
         </div>
-        </div><!-- Before Filling Shipping Address Form-->
-        <div *ngIf="isAddress">
-           <div class="card-body">
-              <p>Thank You ! We Will Ship Your Purchases this Address 
-               
-              </p>
-              <table class="table" >
-                  <tbody>
-                     <tr>
-                       <td>{{shippingAddress.country}}</td>
-                       <td>{{shippingAddress.state}}</td>
-                       <td>{{shippingAddress.city}}</td>
-                     </tr>
-                  <tr>
-                    <td>{{shippingAddress.streetAddress}}</td>
-                    <td>{{shippingAddress.township}}</td>
-                    <td>{{shippingAddress.zipcode}}</td>
-                  </tr>
-                  <tr>
-                    <td>{{shippingAddress.firstName}}</td>
-                    <td>{{shippingAddress.lastName}}</td>
-                    <td>{{shippingAddress.email}}</td>
-                  </tr>
-                  </tbody>
-              </table>
-             
-           </div>
-
-        </div>
-      </div>  <!--Shipping Address Form -->
-      <div class="card">
-        <ngb-accordion #acc="ngbAccordion" >
-          <ngb-panel>
-            <ng-template ngbPanelTitle>
-              <span>&#9733; <b class="text-info"> Pay With</b></span>
-            </ng-template>
-            <ng-template ngbPanelContent>
-              
-
-              
-
-              <form  >
-                <div class="form-row">
-
-                  <div class="form-group col-md-6">
-                    <label>Customer's Card Number</label>
-                    <input type="text" class="form-control" placeholder="Enter your card number" maxlength="16">
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <label>Online-Store's Card Number</label>
-                    <select class="form-control">
-                        <option>AYA 0923 2334 2344 2256</option>
-                        <option>KBZ 0943 5534 1246 3479</option>
-                        <option>UAB 3434 5353 3545 2436</option>
-                        <option>MAB 2356 6477 5363 2546</option>
-                        <option>CB 4642 6464 7568 3632</option>
-                      </select>
-                  </div>
-                </div>
-
-
-                <div class="form-group">
-                  <label>Name on Card </label>
-                  <input type="text" class="form-control" placeholder="Eg. John Wick">
-                </div>
-                <div class="form-row">
-
-                  <div class="form-group col-md-6">
-                    <label>Expired Date</label>
-                    <input matInput type="text" class="form-control" placeholder="10/2022">
-                  </div>
-
-                  <div class="form-group col-md-6 ">
-                    <label>Security Code</label>
-                    <input type="password" class="form-control" placeholder=" 3 - 4 digit)">
-                  </div>
-                </div>
-
-              </form>
-            </ng-template>
-          </ngb-panel>
-        </ngb-accordion>
       </div>
-     <div style="margin-left: 270px">
-        <button mat-raised-button class="btn btn-info mx-4" (click)="onConfirm()" >Confirm Order</button>
-        <button mat-raised-button class="btn btn-danger" routerLink="/productList">Cancel Order</button>
-     </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">Ship to</div>
+
+    <div *ngIf="!isAddress"> Please Fill Your Address .Where we will send Your Purchases.Delivery Fees will be based
+      upon on your township.
+
+      <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="onDone(f.value)">
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <input required type="text" class="form-control ng-invalid ng-touched" placeholder="Name" #name="ngModel"
+                ngModel name="firstName">
+              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                  Name is required.
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" placeholder="City" ngModel name="city" required #city="ngModel">
+              <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                <div *ngIf="city.errors.required">
+                  City Name is required.
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-6 ">
+              <input type="text" class="form-control" placeholder="Street address" ngModel name="streetAddress" required
+                #street="ngModel">
+              <div *ngIf="street.invalid && (street.dirty || street.touched)" class="alert alert-danger">
+                <div *ngIf="street.errors.required">
+                  Street Address is required.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" placeholder="Township" ngModel name="township" required
+                #township="ngModel">
+              <div *ngIf="township.invalid && (township.dirty || township.touched)" class="alert alert-danger">
+                <div *ngIf="township.errors.required">
+                  TownShip Address is required.
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" placeholder="State/Region" ngModel name="state" required
+                #state="ngModel">
+              <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
+                <div *ngIf="state.errors.required">
+                  State Name is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <!-- <label for="exampleInputEmail1"></label> -->
+              <input type="email" class="form-control" placeholder="Email" aria-describedby="emailHelp"
+                id="exampleInputEmail1" ngModel name="email" required #email="ngModel" email>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                <div *ngIf="email.errors.required">
+                  Email is required.
+                </div>
+                <div *ngIf="email.errors.email">
+                  Eg. a@d,mgmg@gmail.com
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-6 ">
+              <input type="tel" class="form-control" placeholder="Phone Number" ngModel name="confirmEmail"
+                minlength="11" required #phone="ngModel">
+              <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                <div *ngIf="phone.errors.required">
+                  Phone is required.
+                </div>
+                <div *ngIf="phone.errors.minlength">
+                  Phone must Be 11 Numbers.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <button mat-raised-button class="btn  btn-sm btn-info left-margin" [disabled]="f.invalid"> Done</button>
+            <a mat-raised-button class="btn btn-sm btn-danger mx-3"> Cancel</a>
+          </div>
+
+        </form>
+      </div>
+    </div><!-- Before Filling Shipping Address Form-->
+    <div *ngIf="isAddress">
+      <div class="card-body">
+        <p>Thank You ! We Will Ship Your Purchases this Address
+
+        </p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>{{shippingAddress.country}}</td>
+              <td>{{shippingAddress.state}}</td>
+              <td>{{shippingAddress.city}}</td>
+            </tr>
+            <tr>
+              <td>{{shippingAddress.streetAddress}}</td>
+              <td>{{shippingAddress.township}}</td>
+              <td>{{shippingAddress.zipcode}}</td>
+            </tr>
+            <tr>
+              <td>{{shippingAddress.firstName}}</td>
+              <td>{{shippingAddress.lastName}}</td>
+              <td>{{shippingAddress.email}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+  <!--Shipping Address Form -->
+  <div class="card">
+    <ngb-accordion #acc="ngbAccordion">
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>&#9733; <b class="text-info"> Pay With</b></span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+
+
+
+
+          <form>
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+                <label>Customer's Card Number</label>
+                <input type="text" class="form-control" placeholder="Enter your card number" maxlength="16">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label>Online-Store's Card Number</label>
+                <select class="form-control">
+                  <option>AYA 0923 2334 2344 2256</option>
+                  <option>KBZ 0943 5534 1246 3479</option>
+                  <option>UAB 3434 5353 3545 2436</option>
+                  <option>MAB 2356 6477 5363 2546</option>
+                  <option>CB 4642 6464 7568 3632</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label>Name on Card </label>
+              <input type="text" class="form-control" placeholder="Eg. John Wick">
+            </div>
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+                <label>Expired Date</label>
+                <input matInput type="text" class="form-control" placeholder="10/2022">
+              </div>
+
+              <div class="form-group col-md-6 ">
+                <label>Security Code</label>
+                <input type="password" class="form-control" placeholder=" 3 - 4 digit)">
+              </div>
+            </div>
+
+          </form>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </div>
+  <div style="margin-left: 270px">
+    <button mat-raised-button class="btn btn-info mx-4" (click)="onConfirm()">Confirm Order</button>
+    <button mat-raised-button class="btn btn-danger" routerLink="/productList">Cancel Order</button>
+  </div>
 </div>
