@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
 
   public productList: Product[] = [];
   keyword: string;
+  errorMessage: string;
 
   constructor(private productService: ProductService,
     private router: Router) { }
@@ -40,7 +41,12 @@ export class ProductListComponent implements OnInit {
   onSearchByTitle() {
     this.productService.searchProduct(this.keyword).subscribe(
       res => {
-        this.productList = res
+        this.productList = res;
+        if (res.length === 0) {
+          this.errorMessage = 'There is no item with name ' + this.keyword + ' .';
+        } else {
+          this.errorMessage = '';
+        }
       },
       error => console.log(error)
     )

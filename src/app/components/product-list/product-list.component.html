@@ -1,13 +1,13 @@
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center mt-5">
-
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto mt-5">
   <form (ngSubmit)="onSearchByTitle()" class="navbar-form">
     <div class="input-group">
       <input type="text" name="searcyByTitle" [(ngModel)]="keyword" class="form-control"
-        placeholder="Search By Name...." />
+        placeholder="Search By Name...." #title />
       <div class="input-group-append">
-        <button type="submit" class="btn btn-outline-secondary">Search</button>
+        <button type="submit" class="btn btn-outline-secondary" [disabled]="title.value === ''">Search</button>
       </div>
     </div>
+    <small class="text-danger">{{errorMessage}}</small>
   </form>
 </div>
 
