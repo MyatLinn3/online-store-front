@@ -114,14 +114,17 @@
               </div>
             </div>
             <div class="form-group col-md-6 ">
-              <input type="number" class="form-control" placeholder="Phone Number" ngModel name="confirmEmail"
-                maxlength="11" required #phone="ngModel">
+              <input type="text" class="form-control" placeholder="Phone Number" ngModel name="confirmEmail"
+                maxlength="11" required #phone="ngModel" pattern="\d*">
               <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
                 <div *ngIf="phone.errors.required">
                   Phone is required.
                 </div>
                 <div *ngIf="phone.errors.maxlength">
                   Phone must Be 11 Numbers.
+                </div>
+                <div *ngIf="phone.errors.pattern">
+                  Phone Are Only Digits.
                 </div>
               </div>
             </div>
@@ -168,21 +171,15 @@
     <ngb-accordion #acc="ngbAccordion">
       <ngb-panel>
         <ng-template ngbPanelTitle>
-          <span>&#9733; <b class="text-info"> Pay With</b></span>
+          <span *ngIf="isAddress">&#9733; <b class="text-info"> Pay With</b></span>
         </ng-template>
         <ng-template ngbPanelContent>
-
-
-
-
-          <form >
+          <form>
             <div class="form-row">
-
               <div class="form-group col-md-6">
                 <label>Customer's Card Number</label>
                 <input type="text" class="form-control" placeholder="Enter your card number" maxlength="16">
               </div>
-
               <div class="form-group col-md-6">
                 <label>Online-Store's Card Number</label>
                 <select class="form-control">
@@ -195,8 +192,6 @@
                 </select>
               </div>
             </div>
-
-
             <div class="form-group">
               <label>Name on Card </label>
               <input type="text" class="form-control" placeholder="Eg. John Wick">
@@ -220,7 +215,7 @@
     </ngb-accordion>
   </div>
   <div style="margin-left: 270px" mt-5>
-    <button mat-raised-button class="btn btn-success mx-4" (click)="onConfirm()" >Confirm </button>
-   
+    <button mat-raised-button class="btn btn-success mx-4" (click)="onConfirm()">Confirm </button>
+
   </div>
 </div>

@@ -42,7 +42,7 @@ export class ProductListComponent implements OnInit {
       res => {
         this.productList = res
       },
-      console.log
+      error => console.log(error)
     )
   }
 }
