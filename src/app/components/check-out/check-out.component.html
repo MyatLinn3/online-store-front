@@ -178,7 +178,17 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label>Customer's Card Number</label>
-                <input type="text" class="form-control" placeholder="Enter your card number" maxlength="16">
+                <input  class="form-control" placeholder="Enter your card number" maxlength="16"
+                pattern="\d*" [class.is-invalid]="cardNumber?.touched && cardNumber?.invalid" #cardNumber="ngModel" 
+                name="cardNumber" ngModel required type="text">
+                <div *ngIf="cardNumber?.touched && cardNumber?.invalid">
+                   <div *ngIf="cardNumber.errors?.required">
+                      Card Number Can not Be Empty!
+                   </div>
+                    <div *ngIf="cardNumber.errors?.pattern">
+                        Card Number only be digits!
+                    </div>
+                </div>
               </div>
               <div class="form-group col-md-6">
                 <label>Online-Store's Card Number</label>
@@ -205,7 +215,17 @@
 
               <div class="form-group col-md-6 ">
                 <label>Security Code</label>
-                <input type="password" class="form-control" placeholder=" (3 - 4 digit)" maxlength="4">
+                <input type="password" class="form-control" placeholder=" (3 - 4 digit)" maxlength="4" 
+                pattern="\d*" [class.is-invalid]="secret?.touched && secret?.invalid" #secret="ngModel" 
+                name="secret" ngModel required type="text">
+                <div *ngIf="secret?.touched && secret?.invalid">
+                    <div *ngIf="secret.errors?.required">
+                       Secret Number Can not Be Empty!
+                    </div>
+                     <div *ngIf="secret.errors?.pattern">
+                         Secret Number only be digits!
+                     </div>
+                 </div>
               </div>
             </div>
 
